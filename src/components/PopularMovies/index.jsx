@@ -1,7 +1,12 @@
+import Header from "../Header"
+
 const PopularMovies = () => (
-    <div>
-        <h1>PopularMovies</h1>
-    </div>
+    <>
+        <Header />
+        <div>
+            <h1>PopularMovies</h1>
+        </div>
+    </>
 )
 
 export default PopularMovies

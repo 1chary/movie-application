@@ -5,3 +5,25 @@
     justify-content: space-between;
     align-items: center;
 }
+.movie-image-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.movie-db-image {
+    height: 30px;
+    width: 60px;
+}
+.tab-styling {
+    margin-right: 10px;
+    color: orange;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid orange;
+    border-radius: 15px;
+    height: 30px;
+    width: 80px;
+}
