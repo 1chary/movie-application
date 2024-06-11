@@ -5,9 +5,10 @@ const Header = () => (
     <div className="header-container">
         <Link to = "/">MovieDb</Link>
         <div>
-            <Link to = "/popular">Popular</Link>
-            <Link to = "/upComing">Up Coming</Link>
-            <Link to = "/topRated">Top Rated</Link>
+            <Link to = "/popularMovies">Popular</Link>
+            <Link to = "/topRatedMovies">Top Rated</Link>
+            <Link to = "/upcomingMovies">Up Coming</Link>
+            
         </div>
     </div>
 )
