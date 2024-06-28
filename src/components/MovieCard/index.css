@@ -1,0 +1,25 @@
+.movie-card-container {
+    height: 280px;
+    width: 280px;
+    margin-top: 20px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer
+}
+.link-element {
+    text-decoration: none;
+}
+
+.poster-style {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+} 
+
+.title-heading {
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}

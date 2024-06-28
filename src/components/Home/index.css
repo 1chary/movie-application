@@ -1,4 +1,15 @@
-.title-heading {
-    color: black;
-    font-size: 24px;
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.movie-container {
+    border-radius: 10px;
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }

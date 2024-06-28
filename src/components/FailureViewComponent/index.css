@@ -1,0 +1,29 @@
+.failure-heading {
+    color: white
+}
+@media screen and (max-width: 767px) {
+    .failure-heading {
+        font-size: 20px;
+    }
+}
+.failure-view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.failure-image-view {
+    height: 350px;
+    width: 70%;
+}
+@media screen and (max-width: 767px) {
+    .failure-image-view {
+        height: 150px;
+        width: 80%;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .failure-image-view {
+        height: 250px;
+        width: 80%;
+    }
+}

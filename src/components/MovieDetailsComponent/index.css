@@ -1,0 +1,8 @@
+.movie-page-container {
+    min-height: 90vh;
+    width: 100%;
+    background-color: black; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
