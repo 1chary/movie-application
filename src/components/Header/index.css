@@ -5,6 +5,17 @@
     justify-content: space-between;
     align-items: center;
 }
+.tabs-for-mobile-applications {
+    display: none;
+}
+@media screen and (max-width: 991px) {
+    .tabs-for-mobile-applications {
+        display: block;
+    }
+    .tabs-container-large-devices {
+        display: none;
+    }
+}
 .movie-image-button {
     background-color: transparent;
     border: none;
@@ -25,6 +36,11 @@
     height: 30px;
     width: 80px;
 }
+@media screen and (max-width: 991px) {
+    .tab-styling {
+        margin-bottom: 10px;
+    }
+}
 .active-tab {
     color: orange;
     border: 1px solid orange
@@ -32,4 +48,19 @@
 .no-active-tab {
     color: white;
     border: 1px solid white;
+}
+.hamburger-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.hamburger-icon {
+    color: white;
+    font-size: 24px;
+    margin-right: 10px;
+}
+.pop-up-container {
+    height: 40vh;
+    background-color: black;
 }

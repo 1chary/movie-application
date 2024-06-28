@@ -3,6 +3,8 @@ import Header from '../Header'
 import './index.css'
 import { useEffect, useState } from 'react'
 import DetailedViewComponent from '../DetailedViewComponent'
+import LoadingViewComponent from '../LoadingViewComponent'
+import FailureViewComponent from '../FailureViewComponent'
 
 
 const MovieDetailsComponent = () => {
@@ -33,6 +35,10 @@ const MovieDetailsComponent = () => {
                 storeDetails([...movieDetailsStorage,...tempStorage])
                 
             }
+            else {
+                displayLoader(false)
+                displayFailure(true)
+            }
             
         }
         fetchMovieDetailsPageData()
@@ -45,6 +51,14 @@ const MovieDetailsComponent = () => {
                 {movieDetailsStorage.map((eachItem) => (
                     < DetailedViewComponent details = {eachItem} key = {eachItem.id}/>
                 ))}
+                {/*Will display the loader if the value is true*/}
+            {showLoading && (
+                < LoadingViewComponent />
+            )}
+            {/* Will display the failure view if the value is true*/}
+            {showFailure && (
+                < FailureViewComponent />
+            )}
             </div>
         </>
     )
