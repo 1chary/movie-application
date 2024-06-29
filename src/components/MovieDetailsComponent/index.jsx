@@ -15,6 +15,7 @@ const MovieDetailsComponent = () => {
 
     useEffect(() => {
         const fetchMovieDetailsPageData = async () => {
+            displayLoader(true)
             const tempStorage = []
             const fetchMovieDetails =  await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${'3ebbee02535b2c5e2a5646788e3b6384'}&language=en-US`)
 

@@ -1,5 +1,10 @@
 
-.loadingHeading {
+.loading-heading {
     color: white;
     font-size: 20px;
+}
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
