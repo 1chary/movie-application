@@ -5,10 +5,21 @@ import UpcomingMovies from "./components/UpcomingMovies";
 import TopRatedMovies from "./components/TopRatedMovies";
 import MovieDetailsComponent from "./components/MovieDetailsComponent";
 import "./App.css"
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const App = () => {
-  const [activeTab,changeActiveTab] = useState('Home')
+
+  const [activeTab, changeActiveTab] = useState(() => {
+    const storedValue = window.localStorage.getItem('active_tab')
+    return storedValue ? JSON.parse(storedValue) : "Home"
+  })
+
+  useEffect(() => {
+      window.localStorage.setItem('active_tab', JSON.stringify(activeTab))
+  },[activeTab])
+
+  console.log(activeTab)
+
   return (
   <Context.Provider value = {[activeTab,changeActiveTab]} >
     <Routes>

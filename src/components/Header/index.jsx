@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "./index.css"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import Context from "../../Context"
 import { RxHamburgerMenu } from "react-icons/rx";
 import {Popup} from "reactjs-popup"
@@ -8,19 +8,8 @@ import {Popup} from "reactjs-popup"
 const Header = () => {
     const [activeTab,changeActiveTab] = useContext(Context)
 
-    useEffect(() => {
-        const value = window.localStorage.getItem('active_tab');
-        changeActiveTab(JSON.parse(value))
-    },[])
-
-    useEffect(() => {
-        window.localStorage.setItem('active_tab', JSON.stringify(activeTab))
-        console.log(activeTab)
-    },[activeTab])
-
     const changeToHomeTab = () => {
         changeActiveTab('Home')
-        
     }
 
     const changeToTopRatedTab = () => {
