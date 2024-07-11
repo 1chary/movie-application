@@ -8,13 +8,13 @@ const TopRatedMovies = () => {
     const [storeFetchedTopRatedData, storeTopRatedData] = useState([])
     const [showLoading,displayLoader] = useState(false)
     const [showFailure,displayFailure] = useState(false)
+    const [page,setPage] = useState(1)
 
     useEffect(() => {
         const fetchTopRatingMoviesData = async () => {
             const topRatedMovies = []
-            for (let i = 1; i < 10; i++) {
             displayLoader(true)
-            const fetchTopRatedMoviesData = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${'3ebbee02535b2c5e2a5646788e3b6384'}&language=en-US&page=${i}`)
+            const fetchTopRatedMoviesData = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${'3ebbee02535b2c5e2a5646788e3b6384'}&language=en-US&page=${page}`)
             if (fetchTopRatedMoviesData.ok === true) {
                 const responseTopRatedData = await fetchTopRatedMoviesData.json()
                 const convertedTopRatedData = responseTopRatedData.results.map((eachItem) => ({
@@ -32,14 +32,22 @@ const TopRatedMovies = () => {
             else {
                 displayLoader(false)
                 displayFailure(true)
-                break
             }
-        }
+        
     }
 
     fetchTopRatingMoviesData()
-    },[])
+    },[page])
 
+    const handleScroll = () => {
+        if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
+            setPage(prev => prev + 1)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll",handleScroll)
+    },[])
 
   return (
   <>

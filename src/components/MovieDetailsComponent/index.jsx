@@ -34,7 +34,7 @@ const MovieDetailsComponent = () => {
                 }
                 tempStorage.push(convertIntoCamellCase)
                 storeDetails([...movieDetailsStorage,...tempStorage])
-                
+                displayLoader(false)
             }
             else {
                 displayLoader(false)

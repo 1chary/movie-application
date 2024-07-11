@@ -5,19 +5,19 @@ import LoadingViewComponent from "../LoadingViewComponent"
 import MovieCard from "../MovieCard";
 import FailureViewComponent from "../FailureViewComponent";
 
+
 const Home = () => {
     const [storeFetchedData, storeData] = useState([])
     const [showLoading,displayLoader] = useState(false)
     const [showFailure,displayFailure] = useState(false)
+    const [page,setPage] = useState(1)
     useEffect(() => {
         const fetchTheHomePageData = async () => {
             const newData = []
-            for (let i = 1; i < 10; i++) {
                 displayLoader(true)
-                const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${'3ebbee02535b2c5e2a5646788e3b6384'}&language=en-US&page=${i}`)
+                const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${'3ebbee02535b2c5e2a5646788e3b6384'}&language=en-US&page=${page}`)
                 if (response.ok === true) {
                     const responseData = await response.json()
-
                     const convertedData = responseData.results.map((eachItem) => ({
                         id: eachItem.id,
                         imagePath : eachItem.poster_path,
@@ -32,13 +32,20 @@ const Home = () => {
                 }
                 else {
                     displayFailure(true)
-                    break
                 }
-            }
         }
     fetchTheHomePageData()
-    },[])
+    },[page])
 
+    const handleScroll = () => {
+        if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
+            setPage(prev => prev + 1)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll",handleScroll)
+    },[])
 
     return (
     <>

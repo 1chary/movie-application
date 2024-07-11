@@ -1,7 +1,8 @@
 .container {
     min-height: 100vh;
     width: 100%;
-    background-color: black;
+    background-image: url("https://wallpapers.com/images/high/dark-gradient-0pkijn4m63be9zse.webp");
+    background-size: cover;
     display: flex;
     justify-content: center;
 }
