@@ -4,7 +4,8 @@ import "./index.css"
 import LoadingViewComponent from "../LoadingViewComponent"
 import MovieCard from "../MovieCard";
 import FailureViewComponent from "../FailureViewComponent";
-
+import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
+import {motion} from "framer-motion"
 const apiConstants = {
     'initial': "INITIAL",
     'success': "SUCCESS",
@@ -14,7 +15,7 @@ const apiConstants = {
 
 const Home = () => {
     const [apiResponse,setApiResponse] = useState(apiConstants.initial)
-    const [data,setData] = useState([])
+    let [data,setData] = useState([])
     const [page,setPage] = useState(1)
     useEffect(() => {
         
@@ -25,6 +26,7 @@ const Home = () => {
             const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${'3ebbee02535b2c5e2a5646788e3b6384'}&language=en-US&page=${page}`)
             if (response.ok === true) {
                 const responseData = await response.json()
+                data = []
                 const convertedData = responseData.results.map((eachItem) => ({
                         id: eachItem.id,
                         imagePath : eachItem.poster_path,
@@ -42,15 +44,6 @@ const Home = () => {
     fetchTheHomePageData()
     },[page])
 
-    const handleScroll = () => {
-        if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
-            setPage(prev => prev + 1)
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener("scroll",handleScroll)
-    },[page])
 
     const renderLoadingView = () => {
         return <LoadingViewComponent />
@@ -86,11 +79,23 @@ const Home = () => {
     return (
     <>
         <Header />
-        <div className="container">
+        <motion.div className="container" 
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+        >
             <div className="movie-container">
                 {renderMoviePage()}
+                <div className="button-container">
+                    <button className="buttons" onClick={() => setPage(page-1)}>
+                        <FaArrowLeft />
+                    </button>
+                    <button className="buttons" onClick={() => setPage(page+1)}>
+                        <FaArrowRight/>
+                    </button>
+                </div>
             </div>
-        </div>
+        </motion.div>
     </>
     )
 }

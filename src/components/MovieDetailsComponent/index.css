@@ -1,7 +1,7 @@
 .movie-page-container {
     min-height: 90vh;
     width: 100%;
-    background-image: url("https://wallpapers.com/images/high/dark-gradient-0pkijn4m63be9zse.webp");
+    background-color: black;
     background-size: cover;
     display: flex;
     flex-direction: column;

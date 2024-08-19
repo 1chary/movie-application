@@ -1,6 +1,6 @@
 .header-container {
     height: 10vh;
-    background-image: url("https://wallpapers.com/images/high/dark-gradient-0pkijn4m63be9zse.webp");
+    background-color: black;
     background-size: cover;
     display: flex;
     justify-content: space-between;
