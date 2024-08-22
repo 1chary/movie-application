@@ -76,6 +76,24 @@ const Home = () => {
         }
     }
 
+    const pageDecreaseCount = () => {
+        if (page < 1) {
+            setPage(1)
+        }
+        else if (page > 1 || page === 1) {
+            setPage(page + 1)
+        }
+    }
+
+    const pageIncreaseCount = () => {
+        if (page > 500) {
+            setPage(500)
+        }
+        else {
+            setPage(page + 1)
+        }
+    }
+
     return (
     <>
         <Header />
@@ -87,10 +105,10 @@ const Home = () => {
             <div className="movie-container">
                 {renderMoviePage()}
                 <div className="button-container">
-                    <button className="buttons" onClick={() => setPage(page-1)}>
+                    <button className="buttons" onClick={pageDecreaseCount}>
                         <FaArrowLeft />
                     </button>
-                    <button className="buttons" onClick={() => setPage(page+1)}>
+                    <button className="buttons" onClick={pageIncreaseCount}>
                         <FaArrowRight/>
                     </button>
                 </div>
