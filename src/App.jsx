@@ -16,8 +16,6 @@ const App = () => {
       window.localStorage.setItem('active_tab', JSON.stringify(activeTab))
   },[activeTab])
 
-  console.log(activeTab)
-
   return (
   <Context.Provider value = {[activeTab,changeActiveTab]} >
       <AnimatedRoutes />

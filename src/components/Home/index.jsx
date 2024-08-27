@@ -6,6 +6,9 @@ import MovieCard from "../MovieCard";
 import FailureViewComponent from "../FailureViewComponent";
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
 import {motion} from "framer-motion"
+import Cookies from "js-cookie";
+import { Navigate } from "react-router-dom";
+
 const apiConstants = {
     'initial': "INITIAL",
     'success': "SUCCESS",
@@ -77,15 +80,17 @@ const Home = () => {
     }
 
     const pageDecreaseCount = () => {
+        console.log(page)
         if (page < 1) {
             setPage(1)
         }
-        else if (page > 1 || page === 1) {
-            setPage(page + 1)
+        else if (page > 1) {
+            setPage(page - 1)
         }
     }
 
     const pageIncreaseCount = () => {
+        console.log(page)
         if (page > 500) {
             setPage(500)
         }
@@ -94,6 +99,10 @@ const Home = () => {
         }
     }
 
+    const token = Cookies.get("jwtToken");
+    if (token !== undefined) {
+        return <Navigate to = "/login" />
+    }
     return (
     <>
         <Header />
